@@ -1,0 +1,35 @@
+{
+  "name": "ai-model-nft-container",
+  "version": "1.0.0",
+  "description": "Framework para governança e licenciamento descentralizado de modelos de IA utilizando dNFTs",
+  "main": "scripts/mint-model-token.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test:security": "hardhat test tests/blockchain/nft_behavior.test.js",
+    "ai:process-data": "python src/data/dataset_processor.py",
+    "ai:oracle-test": "python src/sandbox/src/web3_oracle_client.py",
+    "blockchain:node": "hardhat node",
+    "blockchain:deploy": "hardhat run scripts/deploy-contracts.js --network localhost",
+    "blockchain:mint": "node scripts/mint-model-token.js",
+    "simulate-all": "npm run ai:process-data && npm run compile && npm run test:security && npm run ai:oracle-test"
+  },
+  "keywords": [
+    "AI",
+    "NFT",
+    "Decentralized-AI",
+    "Chainlink",
+    "Smart-Contracts",
+    "Solidity"
+  ],
+  "author": "AI Developer & Architect",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.15"
+  }
+}

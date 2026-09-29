@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+message: "Se você usar este software, por favor cite-o da seguinte forma."
+title: "AI Model NFT Container: Framework para Governança e Licenciamento Descentralizado de Modelos de IA utilizando dNFTs"
+type: software
+version: 1.0.0
+date-released: 2026-09-29
+license: LPI-W3
+repository-code: "https://github.com/seu-usuario/ai-model-nft-container"
+abstract: >
+  Framework técnico e operacional para a convergência entre criptografia distribuída
+  e Inteligência Artificial, utilizando Tokens Não Fungíveis Dinâmicos (dNFTs) como
+  contêineres de governança, identidade e propriedade intelectual. O sistema registra
+  criptograficamente a árvore de hashes do modelo (modelHash), a versão atual (version)
+  e a linhagem de dados utilizada no treinamento (datasetProof).
+authors:
+  - family-names: "Soares"
+    given-names: "Euzébio"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+keywords:
+  - NFT
+  - AI
+  - Blockchain
+  - Smart Contracts
+  - Solidity
+  - Decentralized AI
+  - Chainlink
+  - TEE
+  - Intel SGX
+  - AMD SEV
+  - Merkle Tree
+  - AES-256-GCM
+  - ERC-721
+  - dNFT
+  - Model Governance
+  - Decentralized Licensing
+references:
+  - type: article
+    title: "Development of a Smart Contract for the Transfer of Copyrights in an Artwork Linked to an NFT"
+    authors:
+      - family-names: "Author"
+        given-names: "ResearchGate"
+    year: 2024
+    url: "https://www.researchgate.net/publication/403893827_Development_of_a_Smart_Contract_for_the_Transfer_of_Copyrights_in_an_Artwork_Linked_to_an_NFT"
+  - type: article
+    title: "AI & Blockchain Convergence: A Comprehensive Survey"
+    authors:
+      - family-names: "Author"
+        given-names: "ScienceDirect"
+    year: 2026
+    url: "https://www.sciencedirect.com/science/article/pii/S2096720926000618"
+  - type: book
+    title: "Creating Smart Contracts in Solidity Explained"
+    authors:
+      - family-names: "Author"
+        given-names: "Medium"
+    year: 2024
+    url: "https://medium.com/@fasezayt/creating-a-smart-contract-in-solidity-explained-f38f92f17bc5"
+  - type: book
+    title: "Comprehensive Guide to Solidity Smart Contract Development"
+    authors:
+      - family-names: "Author"
+        given-names: "Medium"
+    year: 2024
+    url: "https://medium.com/@ankitacode11/comprehensive-guide-to-solidity-smart-contract-development-d106d7051b07"
+  - type: book
+    title: "Introduction to Smart Contracts - Solidity Documentation"
+    authors:
+      - family-names: "Ethereum"
+        given-names: "Foundation"
+    year: 2024
+    url: "https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html"

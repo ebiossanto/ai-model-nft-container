@@ -1,0 +1,32 @@
+{
+  "sandbox_policy": {
+    "version": "1.0.0",
+    "isolation": {
+      "network": {
+        "outbound_allowed": false,
+        "inbound_allowed": false,
+        "exceptions": ["oracle_node", "blockchain_rpc"]
+      },
+      "filesystem": {
+        "read_only": true,
+        "allowed_paths": ["/tmp/sandbox_memory"],
+        "encrypted_volumes": ["/dev/sgx_enclave"]
+      },
+      "process": {
+        "max_memory_mb": 4096,
+        "max_cpu_percent": 80,
+        "forbidden_syscalls": ["ptrace", "process_vm_readv", "process_vm_writev"]
+      }
+    },
+    "tee": {
+      "type": "intel_sgx",
+      "attestation_required": true,
+      "min_tcb_level": "up-to-date"
+    },
+    "audit": {
+      "log_destination": "blockchain",
+      "immutable_logs": true,
+      "events": ["enclave_entry", "enclave_exit", "decryption_request", "model_update"]
+    }
+  }
+}

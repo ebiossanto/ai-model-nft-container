@@ -1,0 +1,38 @@
+name: Web3 Contract Deployment
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'contracts/**'
+      - 'scripts/**'
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+    - name: Clonar Código do Repositório
+      uses: actions/checkout@v4
+
+    - name: Configurar Ambiente Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Instalar Dependências
+      run: npm ci
+
+    - name: Compilar Contratos
+      run: npm run compile
+
+    - name: Rodar Testes de Segurança
+      run: npm run test:security
+
+    - name: Deploy para Testnet
+      env:
+        RPC_URL: ${{ secrets.RPC_URL }}
+        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      run: npx hardhat run scripts/deploy-contracts.js --network sepolia

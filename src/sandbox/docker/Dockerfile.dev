@@ -1,0 +1,24 @@
+# Dockerfile para ambiente local de simulação
+FROM python:3.11-slim
+
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar dependências Python
+RUN pip install --no-cache-dir \
+    pycryptodome==3.19.0 \
+    pytest==7.4.3 \
+    requests==2.31.0
+
+# Criar diretório de trabalho
+WORKDIR /sandbox
+
+# Copiar código-fonte
+COPY src/ ./src/
+COPY config/ ./config/
+
+# Comando padrão para desenvolvimento
+CMD ["python3", "-m", "pytest", "tests/", "-v"]

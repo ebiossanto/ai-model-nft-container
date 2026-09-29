@@ -1,0 +1,28 @@
+# Dockerfile para execução em enclave confidencial Intel SGX
+FROM intel/sgx-ubuntu20.04:latest
+
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    python3.9 \
+    python3-pip \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar dependências Python
+RUN pip3 install --no-cache-dir \
+    pycryptodome==3.19.0 \
+    requests==2.31.0 \
+    web3==6.11.3
+
+# Criar diretório de trabalho
+WORKDIR /sandbox
+
+# Copiar código-fonte
+COPY src/ ./src/
+COPY config/ ./config/
+
+# Configurar permissões
+RUN chmod -R 755 /sandbox
+
+# Ponto de entrada do enclave
+ENTRYPOINT ["python3", "src/enclave_main.py"]
